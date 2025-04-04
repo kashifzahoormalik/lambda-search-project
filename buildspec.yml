@@ -9,10 +9,9 @@ phases:
       - echo "Deploying Lambda functions"
       - aws lambda update-function-code --function-name search-opensearch --zip-file fileb://search-opensearch.zip
       - aws lambda update-function-code --function-name upload-to-search --zip-file fileb://upload-to-search.zip
-      - aws lambda update-function-code --function-name searchFunction --zip-file fileb://searchFunction.zip
-      - aws lambda update-function-code --function-name lambda-pdftotxt --zip-file fileb://lambda-pdftotxt.zip
+      - aws lambda update-function-code --function-name earchFunction --zip-file fileb://searchFunction.zip
+      - aws lambda update-function-code --function-name pdftotxt --zip-file fileb://lambda-pdftotxt.zip
 
 artifacts:
   files:
     - '**/*'
-
