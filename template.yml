@@ -1,0 +1,52 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Deploy Lambda functions from S3 using CodePipeline
+
+Resources:
+
+  PdfToTxtFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: pdftotxt
+      Handler: lambda_function.lambda_handler
+      Role: arn:aws:iam::427419385983:role/LambdaExecutionRole
+      Code:
+        S3Bucket: lambda-pipeline-artifacts-kashif
+        S3Key: lambda-pdftotxt.zip
+      Runtime: python3.12
+      Timeout: 30
+
+  UploadToSearchFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: upload-to-search
+      Handler: lambda_function.lambda_handler
+      Role: arn:aws:iam::427419385983:role/LambdaExecutionRole
+      Code:
+        S3Bucket: lambda-pipeline-artifacts-kashif
+        S3Key: upload-to-search.zip
+      Runtime: python3.12
+      Timeout: 30
+
+  SearchOpenSearchFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: search-opensearch
+      Handler: lambda_function.lambda_handler
+      Role: arn:aws:iam::427419385983:role/LambdaExecutionRole
+      Code:
+        S3Bucket: lambda-pipeline-artifacts-kashif
+        S3Key: search-opensearch.zip
+      Runtime: python3.12
+      Timeout: 30
+
+  EarchFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: earchFunction
+      Handler: lambda_function.lambda_handler
+      Role: arn:aws:iam::427419385983:role/LambdaExecutionRole
+      Code:
+        S3Bucket: lambda-pipeline-artifacts-kashif
+        S3Key: searchFunction.zip
+      Runtime: python3.12
+      Timeout: 30
